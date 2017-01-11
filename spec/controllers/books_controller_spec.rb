@@ -29,7 +29,19 @@ RSpec.describe BooksController, type: :controller do
   end
 
   describe 'GET /books/:id' do
+    let!(:test_book) { create(:book) }
+    subject { get :show, id: test_book.id }
 
+    it '@bookにBookオブジェクトが取得されること' do
+      subject
+      book = assigns(:book)
+      expect(book.persisted?).to be_truthy
+    end
+    it 'URLに入力したidのBookが取得されること' do
+      subject
+      book = assigns(:book)
+      expect(book.id).to eq(test_book.id)
+    end
   end
 
   describe 'GET /books/new' do
@@ -67,7 +79,6 @@ RSpec.describe BooksController, type: :controller do
     it 'URLに入力したidのBookが取得されること' do
       subject
       book = assigns(:book)
-      # IDをチェック
       expect(book.id).to eq(test_book.id)
     end
   end
