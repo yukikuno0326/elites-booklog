@@ -68,6 +68,8 @@ div.wrapper.book_index {
       }
       div.info {
         height: 22px;
+        margin-left: 7px;
+        margin-right: 7px;
         margin-bottom: 10px;
       }
     }
@@ -99,6 +101,22 @@ div.wrapper.book_show {
       text-align: center;
     }
   }
+  
+  div.bookmark_and_social {
+    div.social_button {
+      float: right;
+    }
+    div.bookmark {
+      float: right;
+      input.btn {
+        font-size: 10px;
+        height: 20px;
+        padding: 0 5px;
+        vertical-align: top;
+        margin-right: 5px;
+      }
+    }
+  }  
 }
 
 div.wrapper.book_input {

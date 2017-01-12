@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: 'books#index'
   resources :books
+  resources :bookmarks, only: [:create, :destroy]
+  
   get 'books/index'
 
   devise_for :users
