@@ -1,6 +1,7 @@
 class Book < ActiveRecord::Base
   belongs_to :user
   has_many :bookmarks
+  has_many :reviews
   mount_uploader :image, BookImageUploader
   
   validates :title,        presence: true

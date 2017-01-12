@@ -64,13 +64,42 @@
       </div>
       
       <div class="info">
-        <div class="bookmark">
-          ♥ <%= @book.bookmarks.length %>
-        </div>
+        <%= render 'books/info', book: @book %>
       </div>
     </div>
 
   </div>
+  
+  <div class="my_review_wrapper">
+    <% if @my_review %>
+        <%= form_for @my_review do |f| %>
+            <%= f.text_area :body, class: 'form-control', rows: 3, placeholder: 'レビューを書く' %>
+            <div class="footer_menu clearfix">
+              <div class="rank">
+                <%= f.label :rank %> <%= f.select :rank, 5.downto(1).map { |m| [m, m] }, {}, class: 'form-control' %>
+              </div>
+              <div class="review_post">
+                <%= f.submit 'レビュー', class: 'btn btn-primary' %>
+              </div>
+            </div>
+            <%= f.hidden_field :book_id, value: @book.id %>
+        <% end %>
+    <% elsif user_signed_in? %>
+        <b>レビュー済みです</b>
+    <% end %>
+  </div>
+
+  <hr>
+
+  <div class="review_wrapper">
+    レビュー数 <%= @book.reviews.length %>件
+
+    <div class="review_list">
+      <% @book.reviews.each do |review| %>
+          <%= render 'books/review', review: review %>
+      <% end %>
+    </div>
+  </div>  
 
 </div>
 
