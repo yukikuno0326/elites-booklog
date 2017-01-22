@@ -74,6 +74,14 @@ div.wrapper.book_index {
       }
     }
   }
+  ul.category {
+    list-style-type: none;
+    padding: 0px;
+      li {
+        margin:0px; padding:5px; border:1px solid #DDDDDD;
+        display: inline-block;
+      }
+  }
 }
 
 div.wrapper.book_show {
@@ -105,6 +113,7 @@ div.wrapper.book_show {
   div.bookmark_and_social {
     div.social_button {
       float: right;
+      margin-top: 10px;
     }
     div.bookmark {
       float: right;
