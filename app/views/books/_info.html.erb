@@ -3,5 +3,6 @@
 %>
 
 <% if book %>
-    ♥ <%= book.bookmarks.length %>   💬 <%= book.reviews.length %>   ★<%= review_average(book.reviews) %>
+    ♥ <%= book.bookmarks.length %>   💬 <%= book.reviews.length %>   ★<%= review_average(book.reviews) %><br/>
+    <%= book.category.name %>
 <% end %>

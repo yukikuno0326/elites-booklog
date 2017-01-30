@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   root to: 'books#index'
-  resources :books
+  resources :books do
+    collection do
+      post 'filter_by_category'
+    end
+  end
+  
   resources :bookmarks, only: [:create, :destroy]
   resources :reviews,   only: [:create, :destroy]
   
